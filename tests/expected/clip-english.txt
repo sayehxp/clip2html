@@ -1,0 +1,32 @@
+  button { border: 1px solid #dfe2dc; background: #ffffff; color: #1d2421; padding: 6px 14px;
+           font-family: inherit; font-size: 16px; cursor: pointer; }
+  .text { background: #ffffff; border: 1px solid #dfe2dc; padding: 22px 24px; }
+
+  Read 1 file, ran 1 shell command
+
+Both clip2html and clip2hta now open in a white light theme by default. They have buttons to switch to dark and to make the text bigger or smaller. I checked both pages in light and dark by rendering them in Edge and looking at screenshots. I haven't run the HTA itself in mshta, so its theme and size are not yet confirmed to be remembered between windows. The next clip2hta will show that.
+
+Removed:
+- The #f6f5f1 background. The page is white now.
+-  "النص كان معكوسًا وتم تصحيحه" and the "مصحح", "كما نُسخ" and "انسخ النص المصحح" buttons. The page always shows the repaired text. To copy it, select it with Ctrl+A then Ctrl+C.
+
+Added:
+
+┌────────────┬───────────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────┐
+│            │            clip2html (browser)            │                                 clip2hta                                 │
+├────────────┼───────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────┤
+│ Light/dark │ ☾ داكن / ☀ فاتح button                    │ Same button                                                              │
+├────────────┼───────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────┤
+│ Font size  │ A− and A+, plus a 100% button to reset    │ A− and A+, plus Ctrl + / − / 0 and Ctrl + mouse wheel                    │
+├────────────┼───────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────┤
+│ Remembered │ Yes, the browser keeps it for the next    │ Yes, in two small files next to the pages (hta-theme.txt and             │
+│            │ page                                      │ hta-zoom.txt)                                                            │
+└────────────┴───────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────┘
+
+I also fixed the date line in the HTA, where the "·" separators were showing out of order.
+
+I changed three files in C:\Users\sayeh\scripts: clip2html.template.html, clip2hta.template.hta and clip2html.fix.js. Copies of the old versions are in C:\Users\sayeh\AppData\Local\Temp\clip2html-backup.
+
+The font is the same as before. If you want Consolas + Segoe UI as the default font, tell me.
+
+✻ Worked for 2m 27s · done 10:01 PM

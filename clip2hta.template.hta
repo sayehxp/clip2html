@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>النص المنسوخ {{STAMP}}</title>
+<hta:application id="clip2hta" applicationname="clip2hta" border="thick" innerborder="no"
+  scroll="yes" singleinstance="no" sysmenu="yes" maximizebutton="yes" minimizebutton="yes">
+<script>
+  // mshta opens small and in a corner; size the window to the screen and centre it
+  (function () {
+    var w = Math.min(1250, screen.availWidth - 80), h = Math.min(850, screen.availHeight - 80);
+    window.resizeTo(w, h);
+    window.moveTo((screen.availWidth - w) / 2, (screen.availHeight - h) / 2);
+  })();
+</script>
+<style>
+  /* mshta runs the IE11 engine: no CSS variables, no dark mode query, plain colours only.
+     Light is the default; html.dark (the theme button) overrides the colours below. */
+  html, body { margin: 0; background: #ffffff; color: #1d2421; }
+  body { font-family: "Segoe UI", Tahoma, sans-serif; padding: 24px 16px 40px; }
+  #main { max-width: 1050px; margin: 0 auto; }
+  .session { font-size: 22px; font-weight: 700; line-height: 1.5; margin-bottom: 10px; }
+  .nav select { font-family: inherit; font-size: 15px; color: #1d2421; background: #ffffff;
+                border: 1px solid #dfe2dc; padding: 3px 4px; max-width: 100%; }
+  .bar { overflow: hidden; margin-bottom: 14px; }
+  .bar button { float: right; margin-left: 10px; }
+  .meta { float: left; color: #6b746f; font-size: 15px; line-height: 36px; }
+  button { border: 1px solid #dfe2dc; background: #ffffff; color: #1d2421; padding: 6px 14px;
+           font-family: inherit; font-size: 16px; cursor: pointer; }
+  .text { background: #ffffff; border: 1px solid #dfe2dc; padding: 22px 24px; }
+  .end { text-align: center; margin-top: 16px; }
+  .nav { margin-bottom: 14px; }
+  .nav .group { margin-left: 28px; }
+  .nav .where { color: #6b746f; font-size: 15px; margin: 0 8px; }
+  button[disabled] { color: #b5bbb7; cursor: default; }
+  .ln { font-size: 23px; line-height: 2; white-space: pre-wrap; word-wrap: break-word; min-height: 1em; }
+  .ln.item { padding-right: 1.2em; position: relative; }
+  .ln.item:before { content: "\2022"; position: absolute; right: 0.2em; color: #1f6f5a; }
+  .ln[dir="ltr"] { font-family: Consolas, monospace; font-size: 19px; line-height: 1.8; color: #6b746f; }
+  .ln.diagram { color: #1d2421; }
+  /* English lines of a mostly English copy are prose, not code */
+  .ln.en { font-family: "Segoe UI", Tahoma, sans-serif; font-size: 23px; line-height: 2; color: #1d2421; }
+  .ln.en.item { padding-right: 0; padding-left: 1.2em; }
+  .ln.en.item:before { right: auto; left: 0.2em; }
+  /* What the user typed: a prompt is prose even when it is English */
+  .you { background: #f6f0e1; padding: 4px 14px; margin: 6px 0 12px; }
+  .you .ln[dir="ltr"] { font-family: "Segoe UI", Tahoma, sans-serif; font-size: 23px; line-height: 2; color: #1d2421; }
+  table[dir="ltr"] th, table[dir="ltr"] td { text-align: left; }
+  /* Markdown (clip2hta --last) */
+  .ln.h1, .ln.h2, .ln.h3 { font-weight: 700; margin-top: 10px; }
+  .ln.h1 { font-size: 32px; } .ln.h2 { font-size: 28px; } .ln.h3 { font-size: 25px; }
+  .ln.quote { border-right: 3px solid #dfe2dc; padding-right: 12px; color: #6b746f; }
+  .ln.en.quote { border-right: 0; padding-right: 0; border-left: 3px solid #dfe2dc; padding-left: 12px; }
+  /* IE leaves the text of an inline left-to-right span with a background blank inside Arabic
+     text; as an inline-block it draws it */
+  .code { background: #e3efe9; padding: 0 4px; display: inline-block; }
+  pre.code { margin: 8px 0; padding: 12px 14px; white-space: pre-wrap; text-align: left; background: #e3efe9;
+             font: 18px/1.6 Consolas, "Segoe UI", monospace; }
+  pre.code .rtl { font-family: "Segoe UI", Tahoma, sans-serif; }
+  hr { border: 0; border-top: 1px solid #dfe2dc; margin: 14px 0; }
+  .ltr { font-family: Consolas, monospace; font-size: 0.88em; }
+  .tbl { overflow-x: auto; margin: 10px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 20px; line-height: 1.7; }
+  th, td { border: 1px solid #dfe2dc; padding: 8px 12px; text-align: right; vertical-align: top; }
+  td[dir="ltr"], th[dir="ltr"] { text-align: left; }
+  th { background: #e3efe9; font-weight: 600; }
+
+  html.dark, html.dark body { background: #131715; color: #e5ebe7; }
+  html.dark .meta, html.dark .ln[dir="ltr"] { color: #94a19a; }
+  html.dark button { background: #1a201d; color: #e5ebe7; border-color: #2a332f; }
+  html.dark .text { background: #1a201d; border-color: #2a332f; }
+  html.dark .nav select { background: #1a201d; color: #e5ebe7; border-color: #2a332f; }
+  html.dark .ln.item:before { color: #5fc4a0; }
+  html.dark .ln.diagram, html.dark .ln.en { color: #e5ebe7; }
+  html.dark th, html.dark td { border-color: #2a332f; }
+  html.dark th { background: #1e2e27; }
+  html.dark .code, html.dark pre.code { background: #1e2e27; }
+  html.dark hr { border-top-color: #2a332f; }
+  html.dark .you { background: #2a261c; }
+  html.dark .nav .where { color: #94a19a; }
+  html.dark button[disabled] { color: #4d5852; }
+  html.dark .you .ln[dir="ltr"] { color: #e5ebe7; }
+</style>
+</head>
+<body>
+<div id="main">
+  <div class="session" id="session-name" style="display:none"><span></span></div>
+  <div class="bar">
+    <button type="button" id="bigger" title="تكبير (Ctrl +)">A+</button>
+    <button type="button" id="smaller" title="تصغير (Ctrl -)">A&minus;</button>
+    <button type="button" id="theme"></button>
+    <span class="meta"><span id="stamp">{{STAMP}}</span> &middot; <span id="count"></span> &middot; <span id="zoom"></span></span>
+  </div>
+  <!-- right to left: "newer" comes first so "older" ends up on the left, where ← points -->
+  <div class="nav">
+    <span class="group" id="turns-nav">
+      <button type="button" id="newer" title="السؤال التالي (&rarr;)">التالي</button>
+      <span id="turn-at" class="where"></span>
+      <button type="button" id="older" title="السؤال السابق (&larr;)">السابق</button>
+    </span>
+    <span class="group"><select id="session-pick" title="الجلسة" style="display:none"></select></span>
+  </div>
+  <div class="text" id="out"></div>
+  <div class="end"><button type="button" id="close" title="إغلاق (Esc)">إغلاق</button></div>
+</div>
+
+<textarea id="session" style="display:none">{{SESSION}}</textarea>
+<textarea id="sessions" style="display:none">{{SESSIONS}}</textarea>
+<textarea id="ask" style="display:none">{{ASK}}</textarea>
+<textarea id="turns" style="display:none">{{TURNS}}</textarea>
+<textarea id="source" style="display:none" data-mode="{{MODE}}">{{RAW}}</textarea>
+
+<script>{{SCRIPT}}</script>
+<script>
+  // Text size: A+ / A-, Ctrl + / - / 0 and Ctrl + wheel scale the text area (IE's CSS zoom scales
+  // the table and spacing with it). Theme: the button switches light / dark. Both are kept in
+  // small files next to the pages, so the next window opens the same way; an HTA may write
+  // files, a browser page could not.
+  (function () {
+    var out = document.getElementById("out"), label = document.getElementById("zoom");
+    var themeBtn = document.getElementById("theme"), root = document.documentElement;
+    var dir = null;
+    try {
+      dir = new ActiveXObject("WScript.Shell").ExpandEnvironmentStrings("%TEMP%") + "\\clip2html\\";
+    } catch (e) { }
+
+    function load(name) {
+      try {
+        var fso = new ActiveXObject("Scripting.FileSystemObject");
+        if (!dir || !fso.FileExists(dir + name)) return null;
+        var f = fso.OpenTextFile(dir + name, 1), value = f.ReadLine();
+        f.Close();
+        return value;
+      } catch (e) { return null; }
+    }
+    function save(name, value) {
+      if (!dir) return;
+      try {
+        var w = new ActiveXObject("Scripting.FileSystemObject").CreateTextFile(dir + name, true);
+        w.WriteLine(String(value));
+        w.Close();
+      } catch (e) { }
+    }
+
+    var level = parseInt(load("hta-zoom.txt"), 10) || 90;
+    function apply(next, keep) {
+      level = Math.max(50, Math.min(300, next));
+      out.style.zoom = level + "%";
+      label.innerText = level + "%";
+      if (keep) save("hta-zoom.txt", level);
+    }
+    function theme(dark, keep) {
+      root.className = dark ? "dark" : "";
+      themeBtn.innerText = dark ? "☀ فاتح" : "☾ داكن";
+      themeBtn.title = dark ? "الوضع الفاتح" : "الوضع الداكن";
+      if (keep) save("hta-theme.txt", dark ? "dark" : "light");
+    }
+
+    document.getElementById("bigger").onclick = function () { apply(level + 10, true); };
+    document.getElementById("smaller").onclick = function () { apply(level - 10, true); };
+    themeBtn.onclick = function () { theme(root.className !== "dark", true); };
+    // an HTA closes itself without the prompt a browser page would get
+    document.getElementById("close").onclick = function () { window.close(); };
+
+    function readUtf8(path) {
+      var s = new ActiveXObject("ADODB.Stream");
+      s.Type = 2;
+      s.Charset = "utf-8";
+      s.Open();
+      try { s.LoadFromFile(path); return s.ReadText(); } finally { s.Close(); }
+    }
+    // The session dropdown: clip2html keeps each listed session in sessions\<id>.js
+    // (window.clipSession = {...}), read fresh each time so it has the session's latest turns
+    window.clipLoadSession = function (id, done) {
+      try { done(JSON.parse(readUtf8(dir + "sessions\\" + id + ".js").replace(/^[^{]*/, "").replace(/;\s*$/, ""))); }
+      catch (e) { }
+    };
+
+    function turn(step) { return window.clip2html && window.clip2html.turn(step); }
+    document.getElementById("older").onclick = function () { turn(-1); };
+    document.getElementById("newer").onclick = function () { turn(1); };
+
+    document.onkeydown = function () {
+      var e = window.event;
+      if (e.keyCode === 27) { window.close(); return false; }
+      // ← / → step through the turns of a --last page
+      if ((e.keyCode === 37 || e.keyCode === 39) && !e.altKey && !e.shiftKey && !e.ctrlKey) {
+        return !turn(e.keyCode === 37 ? -1 : 1);
+      }
+      if (!e.ctrlKey) return true;
+      if (e.keyCode === 187 || e.keyCode === 107) apply(level + 10, true);
+      else if (e.keyCode === 189 || e.keyCode === 109) apply(level - 10, true);
+      else if (e.keyCode === 48 || e.keyCode === 96) apply(90, true);
+      else return true;
+      return false;
+    };
+    document.onmousewheel = function () {
+      var e = window.event;
+      if (!e.ctrlKey) return true;
+      apply(level + (e.wheelDelta > 0 ? 10 : -10), true);
+      return false;
+    };
+    apply(level, false);
+    theme(load("hta-theme.txt") === "dark", false);
+  })();
+</script>
+</body>
+</html>

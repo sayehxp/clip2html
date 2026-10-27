@@ -1,0 +1,45 @@
+
+● Write(~\scripts\clip2html)
+Wrote 3 lines to ~\scripts\clip2html
+#!/bin/sh
+# Git Bash ignores .cmd for bare names, so this runs the same PowerShel
+l script
+exec powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(cygpath
+ -w "$(dirname "$0")")/clip2html.ps1"
+Allowed by auto mode classifier
+
+هختبر الملفات دلوقتي بنص فيه عربي وإيموجي و <tags> للتأكد إن العرض سليم، وهحفظ محتوى الكليبورد الحالي الأول عشان أرجّعه بعد الاختبار.
+
+  Ran 2 shell commands
+
+من Git Bash اشتغل تمام، والنص اتحط في الصفحة زي ما هو. فاضل أجرب من cmd و PowerShell:
+
+  Ran 1 shell command
+
+الأمر clip2html جاهز، وشغال من أي ترمينال.
+
+تستخدمه إزاي: انسخ أي نص، وبعدين اكتب:
+clip2html
+هتتفتح صفحة HTML في المتصفح فيها النص اللي نسخته.
+
+اللي جربته:
+- من Git Bash و cmd و PowerShell: الأمر اشتغل من التلاتة. يعني هيشتغل كمان في Claude Code بـ ! clip2html.
+-  نص فيه عربي وإيموجي وتاجات: العربي والإيموجي ظهروا صح، و <b> و & ظهروا كنص عادي، مش كـ HTML.
+-  الـ clipboard فاضي: الأمر بيطبع «the clipboard has no text, copy something first» ويقف.
+-  رجّعتلك الـ clipboard زي ما كان قبل التجربة. هتلاقي 3 تابات اتفتحت في المتصفح من التجارب، اقفلهم عادي.
+
+الملفات في C:\Users\sayeh\scripts، بعيد خالص عن Power Terminal:
+
+┌───────────────┬────────────────────────────────────────────┐
+│     الملف     │                    دوره                    │
+├───────────────┼────────────────────────────────────────────┤
+│ clip2html.ps1 │ بيقرا الـ clipboard، ويعمل الصفحة، ويفتحها │
+├───────────────┼────────────────────────────────────────────┤
+│ clip2html.cmd │ لـ cmd و PowerShell                        │
+├───────────────┼────────────────────────────────────────────┤
+│ clip2html     │ لـ Git Bash و Claude Code                  │
+└───────────────┴────────────────────────────────────────────┘
+
+الصفحة نفسها: فيها وقت النسخ وعدد الحروف والسطور، وبتظهر فاتحة أو غامقة على حسب ثيم جهازك، والنص العربي بيتعرض من اليمين لوحده. كل مرة بتعمل صفحة جديدة في %TEMP%\clip2html.
+
+لو عايز تكمّل الفكرة في سيشن Claude Code منفصلة، أقدر أفتحلك نافذة ترمينال جديدة شغّال فيها claude في فولدر scripts.

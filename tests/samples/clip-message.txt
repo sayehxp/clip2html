@@ -1,0 +1,45 @@
+
+● Write(~\scripts\clip2html)
+Wrote 3 lines to ~\scripts\clip2html
+#!/bin/sh
+# Git Bash ignores .cmd for bare names, so this runs the same PowerShel
+l script
+exec powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(cygpath
+ -w "$(dirname "$0")")/clip2html.ps1"
+Allowed by auto mode classifier
+
+ىوتحم ظفحهو ،ميلس ضرعلا نإ دكأتلل >tags< و يجوميإو يبرع هيف صنب يتقولد تافلملا ربتخه .رابتخالا دعب هعجّرأ ناشع لوألا يلاحلا دروبيلكلا
+
+  Ran 2 shell commands
+
+ و cmd نم برجأ لضاف .وه ام يز ةحفصلا يف طحتا صنلاو ،مامت لغتشا Git Bash نمPowerShell:
+
+  Ran 1 shell command
+
+.لانيمرت يأ نم لاغشو ،زهاج clip2html رمألا
+
+:بتكا نيدعبو ،صن يأ خسنا :يازإ همدختست
+clip2html
+.هتخسن يللا صنلا اهيف حفصتملا يف HTML ةحفص حتفتته
+
+:هتبرج يللا
+- Claude يف نامك لغتشيه ينعي .ةتالتلا نم لغتشا رمألا :PowerShell و cmd و Git Bash نم Code ـب ! clip2html.
+-  ،يداع صنك اورهظ & و >b< و ،حص اورهظ يجوميإلاو يبرعلا :تاجاتو يجوميإو يبرع هيف صن.HTML ـك شم
+-  »the clipboard has no text, copy something first« عبطيب رمألا :يضاف clipboard ـلا.فقيو
+-  نم حفصتملا يف تحتفتا تابات 3 يقالته .ةبرجتلا لبق ناك ام يز clipboard ـلا كلتعجّر.يداع مهلفقا ،براجتلا
+
+:Power Terminal نع صلاخ ديعب ،C:\Users\sayeh\scripts يف تافلملا
+
+┌───────────────┬────────────────────────────────────────────┐
+│                    هرود                    │     فلملا     │
+├───────────────┼────────────────────────────────────────────┤
+│ clip2html.ps1 │ ـلا ارقيب clipboard، اهحتفيو ،ةحفصلا لمعيو │
+├───────────────┼────────────────────────────────────────────┤
+│ clip2html.cmd │ ـل cmd و PowerShell                        │
+├───────────────┼────────────────────────────────────────────┤
+│ clip2html     │ ـل Git Bash و Claude Code                  │
+└───────────────┴────────────────────────────────────────────┘
+
+ ميث بسح ىلع ةقماغ وأ ةحتاف رهظتبو ،روطسلاو فورحلا ددعو خسنلا تقو اهيف :اهسفن ةحفصلا يف ةديدج ةحفص لمعتب ةرم لك .هدحول نيميلا نم ضرعتيب يبرعلا صنلاو ،كزاهج%TEMP%\clip2html.
+
+لاغّش ةديدج لانيمرت ةذفان كلحتفأ ردقأ ،ةلصفنم Claude Code نشيس يف ةركفلا لمّكت زياع ول .scripts ردلوف يف claude اهيف

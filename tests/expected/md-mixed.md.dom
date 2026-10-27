@@ -1,0 +1,106 @@
+div.ln.md.h2[rtl]
+  "الفرق بين "
+  span.ltr[ltr]
+    "cmd"
+  " و "
+  span.ltr[ltr]
+    "PowerShell"
+  " و "
+  span.ltr[ltr]
+    "Bash"
+div.ln.md[rtl]
+div.tbl
+  table[rtl]
+    tr
+      th[rtl]
+      th[rtl]
+        b
+          span.ltr[ltr]
+            "cmd"
+      th[rtl]
+        b
+          span.ltr[ltr]
+            "PowerShell"
+      th[rtl]
+        b
+          span.ltr[ltr]
+            "Bash"
+    tr
+      td[rtl]
+        b
+          "المتغيرات"
+      td[rtl]
+        span.ltr.code[ltr]
+          "%NAME%"
+      td[rtl]
+        span.ltr.code[ltr]
+          "$env:NAME"
+      td[rtl]
+        span.ltr.code[ltr]
+          "$NAME"
+    tr
+      td[rtl]
+        b
+          "العربي"
+      td[rtl]
+        "ضعيف، محتاج "
+        span.ltr.code[ltr]
+          "chcp 65001"
+      td[rtl]
+        "كويس"
+      td[rtl]
+        "كويس"
+div.ln.md[rtl]
+div.ln.md[rtl]
+  b
+    "باختصار"
+    ":"
+div.ln.md.item[rtl]
+  b
+    span.ltr[ltr]
+      "cmd"
+  " قديم ومحدود، بس موجود في كل ويندوز"
+  "."
+div.ln.md.item[rtl]
+  "استخدم "
+  span.ltr.code[ltr]
+    "clip2html --last"
+  " عشان تشوف آخر رد"
+  "."
+div.ln.md.num[rtl]
+  span.mark[ltr]
+    "1."
+  " "
+  "الخطوة الأولى"
+  ":"
+  " انسخ النص"
+  "."
+div.ln.md.num.en[ltr]
+  span.mark[ltr]
+    "2."
+  " "
+  "Second step in English with \""
+  span.rtl[rtl]
+    "مصحح"
+  "\", \""
+  span.rtl[rtl]
+    "كما نُسخ"
+  "\" inside."
+div.ln.md[rtl]
+div.ln.md.quote[rtl]
+  "ملاحظة"
+  ":"
+  " الملف ده بيتعمل في "
+  span.ltr.code[ltr]
+    "%TEMP%\\clip2html"
+  "."
+div.ln.md[rtl]
+pre.code[ltr]
+  "clip2html --last\nclip2hta --last"
+div.ln.md[rtl]
+hr
+div.ln.md[rtl]
+div.ln.md[rtl]
+  "الترتيب صح من غير ما نصلّح حاجة"
+  "."
+div.ln.md[rtl]

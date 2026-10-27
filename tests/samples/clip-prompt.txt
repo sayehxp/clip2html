@@ -1,0 +1,27 @@
+
+! clip2html
+clip2html: opened C:\Users\sayeh\AppData\Local\Temp\clip2html\clip-20261023-004907.html
+
+Opened as clip-20261023-004907.html.
+
+✻ Worked for 2s · done 12:49 AM
+
+> can we recognize my question or user question in hta /aa ? just asking
+
+  Searched for 3 patterns
+
+Yes, in both modes. I took "/aa" to mean both pages, the HTA and the HTML one.
+
+--last: easy and reliable. clip2html.ps1 already finds your last real prompt (around line 63), because that's where it starts collecting the reply. Right now it just throws the prompt away. Instead, it could put your question in a separate box above the reply, styled differently, with Arabic fixed for display like everything else. That's a small change.
+
+Clipboard: possible, but it's a guess. In a copy from the terminal, Claude Code marks a prompt with >  at the start of the line and a reply with ●. One of the saved copies starts this way, tests/samples/clip-rerankers.txt:1:
+> rerankers مقارنة بين اشهر 3 انواع
+So a >  line at column 0, before a ● line, could be shown as "your question". Two catches:
+- A Markdown quote in a reply can also start with > , so prompts and quotes could get mixed up.
+- A long prompt wraps over several rows, and only the first row has the > mark.
+
+The ● before it helps tell them apart, but it won't be perfect.
+
+I'd start with --last. If you want the clipboard version too, copy a few things that include your prompt and save them as samples, so the rule can be tested against real copies.
+
+✻ Churned for 15s · done 12:50 AM

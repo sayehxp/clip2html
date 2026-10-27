@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>النص المنسوخ {{STAMP}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
+<script>
+  // Theme before first paint, so a dark page does not flash white
+  try { if (localStorage.getItem("clip2html.theme") === "dark") document.documentElement.className = "dark"; } catch (e) {}
+</script>
+<style>
+  :root { --bg: #ffffff; --fg: #1d2421; --muted: #6b746f; --line: #dfe2dc; --card: #ffffff;
+          --accent: #1f6f5a; --accent-fg: #ffffff; --soft: #e3efe9; --you: #f6f0e1; }
+  :root.dark { --bg: #131715; --fg: #e5ebe7; --muted: #94a19a; --line: #2a332f; --card: #1a201d;
+               --accent: #5fc4a0; --accent-fg: #0f1412; --soft: #1e2e27; --you: #2a261c; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif; padding: 28px 16px 48px; }
+  main { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .meta { color: var(--muted); font-size: 13px; margin-inline-end: auto; }
+  .session { font-size: 20px; font-weight: 600; line-height: 1.5; }
+  .nav select { font: inherit; font-size: 14px; color: var(--fg); background: var(--card); border: 1px solid var(--line);
+                border-radius: 8px; padding: 5px 8px; max-width: 100%; cursor: pointer; }
+  .nav select:hover { border-color: var(--accent); }
+  .bar button { border: 1px solid var(--line); background: var(--card); color: var(--fg); border-radius: 8px;
+                padding: 5px 12px; font: inherit; font-size: 14px; cursor: pointer; min-width: 40px; }
+  .bar button:hover { border-color: var(--accent); }
+  #zoom { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 58px; }
+  .nav { gap: 24px; }
+  .nav .group { display: inline-flex; align-items: center; gap: 8px; }
+  .nav .where { color: var(--muted); font-size: 13px; }
+  .bar button:disabled { opacity: 0.4; cursor: default; border-color: var(--line); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .text { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; }
+  .ln { font-size: 18px; line-height: 2; white-space: pre-wrap; overflow-wrap: anywhere; min-height: 1em; }
+  .ltr { font-family: Consolas, "Cascadia Mono", monospace; font-size: 0.88em; }
+  .ln.item { padding-inline-start: 1.2em; position: relative; }
+  .ln.item::before { content: "•"; position: absolute; inset-inline-start: 0.2em; color: var(--accent); }
+  .ln[dir="ltr"] { font-family: Consolas, "Cascadia Mono", monospace; font-size: 15px; line-height: 1.8; color: var(--muted); }
+  .ln.diagram { color: var(--fg); }
+  /* English lines of a mostly English copy are prose, not code */
+  .ln.en { font-family: inherit; font-size: 18px; line-height: 2; color: var(--fg); }
+  /* What the user typed: a prompt is prose even when it is English */
+  .you { background: var(--you); border-radius: 8px; padding: 4px 14px; margin: 6px 0 12px; }
+  .you .ln[dir="ltr"] { font-family: inherit; font-size: 18px; line-height: 2; color: var(--fg); }
+  /* Markdown (clip2html --last) */
+  .ln.h1, .ln.h2, .ln.h3 { font-weight: 700; margin-top: 10px; }
+  .ln.h1 { font-size: 26px; } .ln.h2 { font-size: 22px; } .ln.h3 { font-size: 20px; }
+  .ln.quote { border-inline-start: 3px solid var(--line); padding-inline-start: 12px; color: var(--muted); }
+  .ln.num { padding-inline-start: 0.4em; }
+  .code { background: var(--soft); border-radius: 4px; padding: 0 4px; }
+  pre.code { margin: 8px 0; padding: 12px 14px; white-space: pre-wrap; text-align: left;
+             font: 15px/1.6 Consolas, "Cascadia Mono", "Segoe UI", monospace; }
+  pre.code .rtl { font-family: "IBM Plex Sans Arabic", "Segoe UI", sans-serif; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 14px 0; }
+  .tbl { overflow-x: auto; margin: 10px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 16px; line-height: 1.7; }
+  th, td { border: 1px solid var(--line); padding: 8px 12px; text-align: start; vertical-align: top; }
+  th { background: var(--soft); font-weight: 600; }
+  textarea[hidden] { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <div class="session" id="session-name" style="display:none"><span></span></div>
+  <div class="bar">
+    <span class="meta">{{STAMP}} &middot; <span id="count"></span></span>
+    <button type="button" id="smaller" title="تصغير الخط" aria-label="تصغير الخط">A&minus;</button>
+    <button type="button" id="zoom" title="الحجم الأصلي"></button>
+    <button type="button" id="bigger" title="تكبير الخط" aria-label="تكبير الخط">A+</button>
+    <button type="button" id="theme"></button>
+  </div>
+  <!-- in a right-to-left row the first button sits on the right, so "newer" comes first and
+       "older" ends up on the left, where its key (←) points -->
+  <div class="bar nav">
+    <span class="group" id="turns-nav">
+      <button type="button" id="newer" title="السؤال التالي (&rarr;)">التالي</button>
+      <span id="turn-at" class="where"></span>
+      <button type="button" id="older" title="السؤال السابق (&larr;)">السابق</button>
+    </span>
+    <span class="group"><select id="session-pick" title="الجلسة" style="display:none"></select></span>
+  </div>
+  <div class="text" id="out"></div>
+</main>
+
+<textarea id="session" hidden>{{SESSION}}</textarea>
+<textarea id="sessions" hidden>{{SESSIONS}}</textarea>
+<textarea id="ask" hidden>{{ASK}}</textarea>
+<textarea id="turns" hidden>{{TURNS}}</textarea>
+<textarea id="source" hidden data-mode="{{MODE}}">{{RAW}}</textarea>
+
+<script>{{SCRIPT}}</script>
+<script>
+  // Text size (A- / A+, click the % to reset) and light/dark theme. Both are remembered in
+  // localStorage, which every clip page shares since they are all file:// pages.
+  (function () {
+    var root = document.documentElement, out = document.getElementById("out");
+    var label = document.getElementById("zoom"), themeBtn = document.getElementById("theme");
+    function load(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+    function save(key, value) { try { localStorage.setItem(key, value); } catch (e) {} }
+
+    var level = parseInt(load("clip2html.zoom"), 10) || 90;
+    function zoom(next) {
+      level = Math.max(50, Math.min(300, next));
+      out.style.zoom = level + "%";
+      label.textContent = level + "%";
+      save("clip2html.zoom", level);
+    }
+    function theme(dark) {
+      root.className = dark ? "dark" : "";
+      themeBtn.textContent = dark ? "☀ فاتح" : "☾ داكن";
+      themeBtn.title = dark ? "الوضع الفاتح" : "الوضع الداكن";
+      save("clip2html.theme", dark ? "dark" : "light");
+    }
+    document.getElementById("bigger").onclick = function () { zoom(level + 10); };
+    document.getElementById("smaller").onclick = function () { zoom(level - 10); };
+    label.onclick = function () { zoom(90); };
+    themeBtn.onclick = function () { theme(root.className !== "dark"); };
+    zoom(level);
+    theme(root.className === "dark");
+
+    // The session dropdown: clip2html keeps each listed session in sessions\<id>.js beside the
+    // pages, loaded fresh each time so it has the session's latest turns
+    window.clipLoadSession = function (id, done) {
+      var s = document.createElement("script");
+      s.src = "sessions/" + id + ".js?" + new Date().getTime();
+      s.onload = function () { done(window.clipSession); s.parentNode.removeChild(s); };
+      document.body.appendChild(s);
+    };
+
+    function turn(step) { return window.clip2html && window.clip2html.turn(step); }
+    document.getElementById("older").onclick = function () { turn(-1); };
+    document.getElementById("newer").onclick = function () { turn(1); };
+    // ← / → step through the turns of a --last page
+    document.addEventListener("keydown", function (e) {
+      if (e.altKey || e.shiftKey || e.ctrlKey || (e.key !== "ArrowLeft" && e.key !== "ArrowRight")) return;
+      if (turn(e.key === "ArrowLeft" ? -1 : 1)) e.preventDefault();
+    });
+  })();
+</script>
+</body>
+</html>

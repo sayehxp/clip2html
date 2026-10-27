@@ -1,0 +1,83 @@
+div.ln.md[rtl]
+  "الترتيب اتصلّح صح، بس النص اللي نسخته "
+  b
+    "ناقص كلمات"
+  "."
+  " السطر اللي اتنسخ بيبدأ كده"
+  ":"
+div.ln.md[rtl]
+pre.code[ltr]
+  "-  buttons. The page always shows the repaired text. To \""
+  span.rtl[rtl]
+    "ححصملا صنلا خسنا"
+  "\" and ..."
+div.ln.md[rtl]
+div.ln.md[rtl]
+  "كلمة "
+  span.ltr.code[ltr]
+    "label"
+  " مش موجودة في النسخة خالص، وفيه مسافة زيادة بعد الـ "
+  span.ltr.code[ltr]
+    "-"
+  "."
+  " الجملة الأصلية غالبًا كانت"
+  ":"
+div.ln.md[rtl]
+pre.code[ltr]
+  "- The \""
+  span.rtl[rtl]
+    "النص كان معكوسًا وتم تصحيحه"
+  "\" label and the \""
+  span.rtl[rtl]
+    "مصحح"
+  "\", \""
+  span.rtl[rtl]
+    "كما نُسخ"
+  "\" and \""
+  span.rtl[rtl]
+    "انسخ النص المصحح"
+  "\" buttons. ..."
+div.ln.md[rtl]
+div.ln.md[rtl]
+  span.ltr.code[ltr]
+    "The"
+  " و "
+  span.ltr.code[ltr]
+    "label"
+  " ضاعوا في عرض "
+  span.ltr[ltr]
+    "Claude Code"
+  " نفسه، قبل ما تنسخ"
+  "."
+  " لما يكون السطر فيه عربي وإنجليزي مع بعض، الترمينال ساعات بيقلبه وبيسقط حتت صغيرة زي دي"
+  "."
+  " الصفحة بتقدر ترتّب الكلام اللي وصلها بس، فمتقدرش ترجّع كلمات متنسختش أصلاً"
+  "."
+div.ln.md[rtl]
+div.ln.md[rtl]
+  "النسخ من الترمينال هو أكتر حاجة بتضيّع النص في الحالات دي"
+  ":"
+  " قلب، وتقسيم سطور، وكلمات ساقطة، وصفوف متكررة"
+  "."
+  " فيه طريقة أدق"
+  ": "
+  span.ltr[ltr]
+    "Claude Code"
+  " بيحفظ كل محادثة في ملفات جوه "
+  span.ltr.code[ltr]
+    "~/.claude/projects/"
+  "، والنص فيها بشكله الأصلي وبالترتيب الصح"
+  "."
+  " ممكن أضيف خيار زي "
+  span.ltr.code[ltr]
+    "clip2html --last"
+  " يعرض آخر رد من "
+  span.ltr[ltr]
+    "Claude"
+  " من الملفات دي"
+  "."
+  " ساعتها مش هتحتاج تنسخ أي حاجة، والنص هيطلع بالظبط، من غير قلب ولا كلمات ناقصة"
+  "."
+div.ln.md[rtl]
+div.ln.md[rtl]
+  "أضيفه؟"

@@ -1,0 +1,141 @@
+div.ln.md.h1[rtl]
+  "حلول خطأ العرض"
+  ": "
+  span.ltr[ltr]
+    "SQL"
+  " و "
+  span.ltr[ltr]
+    "NoSQL"
+div.ln.md[rtl]
+div.ln.md[rtl]
+  "لذلك فتعقيد الوقت هو "
+  b
+    span.ltr[ltr]
+      "O(log n)"
+  "."
+  " وللتوضيح "
+  i
+    "بالأرقام"
+  " نكتب "
+  span.ltr.code[ltr]
+    "n / 2^k = 1"
+  " ثم "
+  i
+    span.ltr[ltr]
+      "InnoDB"
+  " و "
+  i
+    "مفتوحة المصدر"
+  " فقط"
+  "."
+div.ln.md[rtl]
+div.ln.md[rtl]
+  "مساحة الدائرة "
+  span.ltr[ltr]
+    "= π × r²"
+  " ومعادلة الدرجة الثانية "
+  span.ltr[ltr]
+    "ax² + bx + c = 0"
+  " وشرح الحل"
+  "."
+div.ln.md[rtl]
+div.ln.md.item[rtl]
+  b
+    "قواعد البيانات العلائقية "
+    "("
+    span.ltr[ltr]
+      "SQL"
+    ")"
+div.ln.md.item[rtl]{marginRight:1.6em}
+  b
+    span.ltr[ltr]
+      "MySQL"
+div.ln.md.item[rtl]{marginRight:3.2em}
+  i
+    "مفتوحة المصدر"
+  " وواسعة الانتشار في تطبيقات الويب"
+div.ln.md.item[rtl]{marginRight:3.2em}
+  "تدعم المعاملات عبر محرك "
+  i
+    span.ltr[ltr]
+      "InnoDB"
+div.ln.md.item[rtl]{marginRight:1.6em}
+  b
+    span.ltr[ltr]
+      "PostgreSQL"
+div.ln.md.item[rtl]
+  "قواعد غير علائقية"
+div.ln.md[rtl]
+div.ln.md.num[rtl]
+  span.mark[ltr]
+    "1."
+  " "
+  "نكتب القانون"
+  ":"
+div.ln.md.num[rtl]
+  span.mark[ltr]
+    "2."
+  " "
+  "نعوّض قيمة نصف القطر"
+  "."
+div.ln.md[rtl]
+div.tbl
+  table[rtl]
+    tr
+      th[rtl]
+        "الجانب"
+      th[rtl]
+        span.ltr[ltr]
+          "React"
+    tr
+      td[rtl]
+        "لغة القوالب"
+      td[ltr]
+        "JSX ("
+        span.rtl[rtl]
+          "خليط من"
+        " JavaScript "
+        span.rtl[rtl]
+          "و"
+        "HTML)"
+    tr
+      td[rtl]
+        "المطوّر"
+      td[rtl]
+        span.ltr[ltr]
+          "Meta"
+    tr
+      td[rtl]
+        "الإصدار"
+      td[rtl]
+        span.ltr[ltr]
+          "v18"
+div.ln.md[rtl]
+div.ln.md[rtl]
+  span.ltr[ltr]
+    "2 * 3 = 6"
+  " و "
+  span.ltr[ltr]
+    "a * b"
+  " لا تتغير"
+  "."
+div.ln.md.item[rtl]
+  b
+    span.ltr[ltr]
+      "MongoDB"
+  ":"
+  " تخزّن البيانات بصيغة "
+  i
+    span.ltr[ltr]
+      "BSON/JSON"
+  " المرنة"
+div.ln.md.item[rtl]
+  b
+    span.ltr[ltr]
+      "Redis"
+  ":"
+  " تعمل "
+  i
+    "في الذاكرة"
+  " وتوفر سرعة عالية"
+div.ln.md[rtl]
